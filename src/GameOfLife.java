@@ -10,7 +10,6 @@ public class GameOfLife extends JPanel{
 	
 	public GameOfLife(){
 		setSize(new Dimension(600,600));
-
 	}
 	
 	public void paint(Graphics g){

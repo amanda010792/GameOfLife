@@ -3,22 +3,6 @@ public class GameOfLifeBoard {
 	public static Integer[][] board;
 	public static Integer length;
 	public static Integer width;
-	public GameOfLifeBoard() {
-		// By default, board is of size 5x5
-		length = 5;
-		width = 5;
-		board = new Integer[5][5];
-		for(int x = 0; x < 5; x++){
-			for(int y = 0; y < 5; y++){
-				if(Math.random() < 0.5){
-					board[x][y] = 0;
-				}
-				else{
-					board[x][y] = 1;
-				}
-			}
-		}
-	}
 	
 	public GameOfLifeBoard(int x, int y){
 		// If user inputs board size, creates board of given length and width
@@ -42,21 +26,9 @@ public class GameOfLifeBoard {
 		width = y;
 		GameOfLifeBoard.board = board;
 	}
-	
-	public Integer getWidth() {
-		return width;
-	}
 
-	public Integer getLength() {
-		return length;
-	}
-	
 	public Integer[][] getBoard() {
 		return board;
-	}
-	
-	public static void setBoard(Integer[][] board){
-		GameOfLifeBoard.board = board;
 	}
 
 	public void iterate(){
@@ -131,17 +103,7 @@ public class GameOfLifeBoard {
 				}
 			}
 		}
-		setBoard(newBoard);
-	}
-	
-	public static void printBoard() {
-		System.out.println("length: " + length + " width: " + width);
-		for(int x = 0; x < length; x++){
-			for(int y = 0; y < width; y++){
-				System.out.print(board[x][y] + " ");
-			}
-			System.out.println();
-		}
+		board= newBoard;
 	}
 
 }
