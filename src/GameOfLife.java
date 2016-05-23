@@ -15,12 +15,20 @@ public class GameOfLife extends JPanel{
 	
 	public void paint(Graphics g){
 		g.fillRect(100, 100, 400, 400);
+		
 		for(int x = 0; x< currentBoard.length; x++){
 			for(int y = 0; y<currentBoard[0].length; y++){
 				if(currentBoard[x][y] == 0){
 					g.clearRect(100+ (x*(400/currentBoard.length)), 100+ (y*(400/currentBoard[0].length)), (400/currentBoard.length), (400/currentBoard[0].length));
 				}
 			}
+		}
+		g.setColor(Color.gray);
+		for(int x = 0; x< currentBoard.length; x++){
+			g.drawLine(100+(x*(400/currentBoard.length)), 100, 100+ (x*(400/currentBoard.length)), 500);
+		}
+		for(int y = 0; y< currentBoard[0].length; y++){
+			g.drawLine(100, 100+(y*(400/currentBoard[0].length)), 500, 100+(y*(400/currentBoard[0].length)));
 		}
 	}
 	
@@ -39,7 +47,7 @@ public class GameOfLife extends JPanel{
 		frame.setVisible(true);
 		
 		GameOfLifeBoard myBoard = new GameOfLifeBoard(10,10);
-		for(int x = 0; x < 10; x++){
+		for(int x = 0; x < 20; x++){
 			myBoard.iterate();
 			currentBoard = myBoard.getBoard();
 			frame.repaint();
